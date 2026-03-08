@@ -2,11 +2,18 @@ const express = require('express');
 
 const app = express();
 
-// root route 
+// Basic  root routing
 
+// Define a route for GET requests to the root URL
 app.get("/" , (req, res)=> {
   res.send("Welcome to our home page")
 })
+
+// // Catch all other routes
+// app.all('*', (req, res) => {
+//   res.status(404).send('404 - Page not found');
+// });
+
 
 // get all products 
 app.get('/products' , (req , res)=>{
@@ -59,6 +66,8 @@ app.get('/products/:id' , (req , res)=>{
 
 const port = 3000;
 
+// Start the server
 app.listen(port , ()=> {
-  console.log(`Server is now running at port ${port}`)
+  console.log(`Server is now running at port http://localhost:${port}`)
 })
+
